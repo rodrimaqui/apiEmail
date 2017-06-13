@@ -2,12 +2,11 @@ package parcial2.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import parcial2.Models.Message;
 import parcial2.Services.MessageService;
+
+import java.util.List;
 
 
 /**
@@ -20,9 +19,27 @@ public class MessageController {
     @Autowired
     MessageService m;
 
-    @RequestMapping(value ="/message", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value ="/api/message", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public void addMessage(@RequestBody Message message)
     {
         m.saveMessage(message);
+    }
+
+    @RequestMapping(value = "/api/message", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public void removeMessage(@RequestHeader int id)
+    {
+        m.removeMessage(id);
+    }
+
+    @RequestMapping(value = "/api/message/Inbox", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Message> getInboxMessage()
+    {
+        return m.getInboxMessage();
+    }
+
+    @RequestMapping(value = "/api/message/Trash", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Message> getTrashMessage()
+    {
+        return m.getTrashMessage();
     }
 }

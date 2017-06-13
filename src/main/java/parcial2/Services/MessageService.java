@@ -6,6 +6,8 @@ import parcial2.Models.Message;
 import parcial2.Persistence.DaoMessage;
 import parcial2.Persistence.DaoUser;
 
+import java.util.List;
+
 /**
  * Created by rodri on 07/06/17.
  */
@@ -19,7 +21,20 @@ public class MessageService {
     {
         this.m = m;
     }
+
     public void saveMessage(Message message) {
         m.saveMessage(message);
+    }
+
+    public void removeMessage(int id) {
+        m.removeMessage(id);
+    }
+
+    public List<Message> getInboxMessage() {
+        return m.getInboxMessage();
+    }
+
+    public List<Message> getTrashMessage() {
+        return m.getTrashMessage();
     }
 }

@@ -38,4 +38,9 @@ public class UserService {
     {
         a.removeOneUser(id);
     }
+
+    ///
+    public User login(String nombreUsuario, String password) {
+        return a.getOne(nombreUsuario,password);
+    }
 }
