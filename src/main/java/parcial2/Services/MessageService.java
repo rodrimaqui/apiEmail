@@ -37,4 +37,8 @@ public class MessageService {
     public List<Message> getTrashMessage() {
         return m.getTrashMessage();
     }
+
+    public List<Message> getSendMessage() {
+        return m.getSendMessage();
+    }
 }

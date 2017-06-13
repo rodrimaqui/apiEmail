@@ -82,6 +82,18 @@ public class DaoMessage {
     }
 
     public void removeMessage(int id) {
+
+        try {
+
+            PreparedStatement ps = cn.prepareStatement("UPDATE messages SET estado = 0 WHERE id = ?");
+            ps.setInt(1, id);
+
+            ps.execute();
+        }catch (SQLException e)
+        {
+            e.printStackTrace();
+        }
+
     }
 
 
@@ -114,6 +126,29 @@ public class DaoMessage {
         try{
 
             PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userReceptor = ? AND estado = 0");
+            ps.setInt(1,as.getUsuario().getId());
+
+            ResultSet rs = ps.executeQuery();
+
+            while(rs.next())
+            {
+
+                Message auxMessage = new Message(rs.getInt("id"),rs.getString("remitente"),rs.getString("receptor"),rs.getString("asunto"),rs.getString("mensaje"),rs.getString("fecha"),rs.getBoolean("estado"));
+                listMessage.add(auxMessage);
+            }
+
+        }catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return listMessage;
+    }
+
+    public List<Message> getSendMessage() {
+        List<Message> listMessage = new ArrayList<Message>();
+        try{
+
+            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userRemitente = ? AND estado = 1");
             ps.setInt(1,as.getUsuario().getId());
 
             ResultSet rs = ps.executeQuery();

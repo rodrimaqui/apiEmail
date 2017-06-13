@@ -42,4 +42,10 @@ public class MessageController {
     {
         return m.getTrashMessage();
     }
+
+    @RequestMapping(value = "/api/message/Send", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public List<Message> getSendMessage()
+    {
+        return m.getSendMessage();
+    }
 }

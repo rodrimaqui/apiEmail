@@ -2,16 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f1743774-bb73-4fd6-9032-f46bf0537cc2" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Configuracion.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Configuracion.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Models/Message.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Models/Message.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoUser.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoUser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Services/UserService.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Services/UserService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/util/AuthenticationData.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/util/AuthenticationData.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/util/SessionData.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/util/SessionData.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java" afterPath="$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -45,42 +38,17 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="AuthenticationData.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/util/AuthenticationData.java">
+      <file leaf-file-name="UserController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SessionData.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/util/SessionData.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="34" column="10" lean-forward="false" selection-start-line="34" selection-start-column="10" selection-end-line="34" selection-end-column="10" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="App.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/App.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="200">
-              <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-36">
-              <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
-              <folding />
+            <state relative-caret-position="204">
+              <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+              <folding>
+                <element signature="e#860#861#0" expanded="true" />
+                <element signature="e#897#898#0" expanded="true" />
+                <element signature="e#1511#1512#0" expanded="true" />
+                <element signature="e#1557#1558#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -116,20 +84,20 @@
         <option value="$PROJECT_DIR$/.travis.yml" />
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Models/User.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Response/LoginResponseWrapper.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/App.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/AuthFilter.java" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
-        <option value="$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Models/Message.java" />
-        <option value="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Configuracion.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Services/UserService.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoUser.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/util/AuthenticationData.java" />
         <option value="$PROJECT_DIR$/src/main/java/parcial2/util/SessionData.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java" />
       </list>
     </option>
   </component>
@@ -1021,21 +989,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="520">
-          <caret line="37" column="26" lean-forward="true" selection-start-line="37" selection-start-column="26" selection-end-line="37" selection-end-column="26" />
-          <folding>
-            <element signature="e#584#585#0" expanded="false" />
-            <element signature="e#619#620#0" expanded="false" />
-            <element signature="e#665#666#0" expanded="false" />
-            <element signature="e#707#708#0" expanded="false" />
-            <element signature="e#753#754#0" expanded="false" />
-            <element signature="e#795#796#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/application.properties">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -1060,18 +1013,6 @@
         <state relative-caret-position="-220">
           <caret line="24" column="9" lean-forward="false" selection-start-line="24" selection-start-column="9" selection-end-line="24" selection-end-column="9" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1554">
-          <caret line="88" column="61" lean-forward="true" selection-start-line="88" selection-start-column="61" selection-end-line="88" selection-end-column="61" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#2778#2787#0" expanded="true" />
-            <element signature="e#3552#3561#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1102,30 +1043,50 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Configuracion.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="29" column="5" lean-forward="false" selection-start-line="29" selection-start-column="5" selection-end-line="29" selection-end-column="5" />
-          <folding>
-            <element signature="e#897#898#0" expanded="false" />
-            <element signature="e#1511#1512#0" expanded="false" />
-            <element signature="e#1557#1558#0" expanded="false" />
-          </folding>
+        <state relative-caret-position="140">
+          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Services/MessageService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="987">
-          <caret line="68" column="10" lean-forward="false" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
-          <folding />
+        <state relative-caret-position="172">
+          <caret line="29" column="20" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="20" />
+          <folding>
+            <element signature="e#584#585#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#840#841#0" expanded="true" />
+            <element signature="e#881#882#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Controllers/MessageController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-36">
-          <caret line="15" column="2" lean-forward="false" selection-start-line="15" selection-start-column="2" selection-end-line="15" selection-end-column="2" />
+        <state relative-caret-position="158">
+          <caret line="30" column="20" lean-forward="true" selection-start-line="30" selection-start-column="20" selection-end-line="30" selection-end-column="20" />
+          <folding>
+            <element signature="e#673#674#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#891#892#0" expanded="true" />
+            <element signature="e#926#927#0" expanded="true" />
+            <element signature="e#1099#1100#0" expanded="true" />
+            <element signature="e#1141#1142#0" expanded="true" />
+            <element signature="e#1314#1315#0" expanded="true" />
+            <element signature="e#1356#1357#0" expanded="true" />
+            <element signature="e#1527#1528#0" expanded="true" />
+            <element signature="e#1568#1569#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/App.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
           <folding />
         </state>
       </provider>
@@ -1138,27 +1099,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/App.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Persistence/DaoMessage.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="12" column="17" lean-forward="false" selection-start-line="12" selection-start-column="17" selection-end-line="12" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Configuracion.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="140">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="-248">
+          <caret line="90" column="25" lean-forward="false" selection-start-line="90" selection-start-column="25" selection-end-line="90" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#3040#3049#0" expanded="true" />
+            <element signature="e#3814#3823#0" expanded="true" />
+            <element signature="e#4586#4595#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/util/AuthenticationData.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
+        <state relative-caret-position="58">
           <caret line="10" column="6" lean-forward="false" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="987">
+          <caret line="68" column="10" lean-forward="false" selection-start-line="68" selection-start-column="10" selection-end-line="68" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/parcial2/Controllers/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="49" column="39" lean-forward="true" selection-start-line="49" selection-start-column="39" selection-end-line="49" selection-end-column="39" />
+          <folding>
+            <element signature="e#860#861#0" expanded="true" />
+            <element signature="e#897#898#0" expanded="true" />
+            <element signature="e#1511#1512#0" expanded="true" />
+            <element signature="e#1557#1558#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
