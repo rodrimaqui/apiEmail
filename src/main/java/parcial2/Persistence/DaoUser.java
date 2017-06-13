@@ -116,5 +116,26 @@ public class DaoUser {
         return ps;
     }
 
+    public User getUserWithName(String email) {
+        User usr = null;
+
+        try {
+                PreparedStatement ps = cn.prepareStatement("SELECT u.id AS idUser, u.email, u.pass, p.id AS idPerson,p.nombre,p.apellido,p.direccion,p.telefono,p.ciudad,p.pais,p.provincia FROM users AS u INNER JOIN persons AS p ON u.person_id = p.id  WHERE u.email LIKE ?;");
+                ps.setString(1,email);
+
+                ResultSet rs = ps.executeQuery();
+
+            while (rs.next()) {
+                Person p = new Person(rs.getInt("idPerson"), rs.getString("nombre"), rs.getString("apellido"), rs.getString("direccion"), rs.getString("telefono"), rs.getString("ciudad"), rs.getString("pais"), rs.getString("provincia"));
+                usr = new User(rs.getInt("idUser"), rs.getString("email"), rs.getString("pass"), p);
+            }
+
+        }catch(SQLException e)
+        {
+            e.printStackTrace();
+        }
+        return usr;
+    }
+
     ///
 }

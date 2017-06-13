@@ -1,11 +1,14 @@
 package parcial2.util;
 
 import org.joda.time.DateTime;
+import org.springframework.stereotype.Service;
 import parcial2.Models.User;
 
 /**
  * Created by rodri on 11/06/17.
  */
+
+@Service
 public class AuthenticationData {
 
     private User usuario;

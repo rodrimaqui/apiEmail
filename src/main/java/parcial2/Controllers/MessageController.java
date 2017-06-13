@@ -13,7 +13,7 @@ import java.util.List;
  * Created by rodri on 06/06/17.
  */
 @RestController
-@RequestMapping(value = "/api",produces = MediaType.APPLICATION_JSON_VALUE)
+/*@RequestMapping(value = "/api",produces = MediaType.APPLICATION_JSON_VALUE)*/
 public class MessageController {
 
     @Autowired

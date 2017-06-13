@@ -14,6 +14,8 @@ public class Configuracion {
     @Autowired
     AuthFilter authFilter;
 
+
+
     @Bean
     public FilterRegistrationBean myFilter() {
         FilterRegistrationBean registration = new FilterRegistrationBean();

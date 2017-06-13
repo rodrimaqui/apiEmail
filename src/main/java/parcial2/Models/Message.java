@@ -10,6 +10,7 @@ public class Message {
     private String receptor;
     private String asunto;
     private String mensaje;
+    private String fecha;
     private boolean estado;
 
     public Message(){}
@@ -21,12 +22,13 @@ public class Message {
         this.estado = estado;
     }
 
-    public Message(int id, String remitente, String receptor, String asunto, String mensaje, boolean estado) {
+    public Message(int id, String remitente, String receptor, String asunto, String mensaje, String fecha,boolean estado) {
         this.id = id;
         this.remitente = remitente;
         this.receptor = receptor;
         this.asunto = asunto;
         this.mensaje = mensaje;
+        this.fecha = fecha;
         this.estado = estado;
     }
 

@@ -43,4 +43,8 @@ public class UserService {
     public User login(String nombreUsuario, String password) {
         return a.getOne(nombreUsuario,password);
     }
+
+    public User getUserWithName(String email) {
+        return a.getUserWithName(email);
+    }
 }

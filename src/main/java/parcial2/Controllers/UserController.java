@@ -28,7 +28,6 @@ public class UserController {
     @RequestMapping(value ="/api/user/", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
     public List<User> getUser()
     {
-        System.out.println("asdasdasdasdasddsdasdasdas");
         return u.getAllUser();
     }
 
@@ -45,7 +44,11 @@ public class UserController {
         u.removeOneUser(id);
     }
 
-
+    @RequestMapping(value = "/api/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public User getUserWithName(@RequestParam("email") String email)
+    {
+       return u.getUserWithName(email);
+    }
 //////////
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public @ResponseBody ResponseEntity<LoginResponseWrapper> getById(@RequestParam("user") String user, @RequestParam("pwd") String pwd){
