@@ -6,10 +6,12 @@
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Services/UserService.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/util/SessionData.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Models/Message.java
+/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Response/UserWrapper.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Services/MessageService.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Persistence/DaoMessage.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Configuracion.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/AuthFilter.java
+/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Converter/UserConverter.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/App.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Controllers/MessageController.java
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/main/java/parcial2/Models/Person.java

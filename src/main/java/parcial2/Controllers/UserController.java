@@ -5,11 +5,14 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+import parcial2.Converter.UserConverter;
 import parcial2.Models.User;
 import parcial2.Response.LoginResponseWrapper;
+import parcial2.Response.UserWrapper;
 import parcial2.Services.UserService;
 import parcial2.util.SessionData;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -21,14 +24,18 @@ public class UserController {
 
     @Autowired
     UserService u;
+
+    @Autowired
+    UserConverter converter;
     ///
     @Autowired
     SessionData sessionData;
     ///
     @RequestMapping(value ="/api/user/", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<User> getUser()
+    public List<UserWrapper> getUser()
     {
-        return u.getAllUser();
+
+        return convertList(u.getAllUser());
     }
 
     @RequestMapping(value = "/api/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -45,9 +52,10 @@ public class UserController {
     }
 
     @RequestMapping(value = "/api/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public User getUserWithName(@RequestParam("email") String email)
+    public UserWrapper getUserWithName(@RequestParam("email") String email)
     {
-       return u.getUserWithName(email);
+        UserWrapper uW = converter.converterUser(u.getUserWithName(email));
+       return uW;
     }
 //////////
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
@@ -67,4 +75,15 @@ public class UserController {
         return new ResponseEntity(HttpStatus.ACCEPTED);
     }
     /////////
+
+    private List<UserWrapper> convertList(List<User> users)
+    {
+        List<UserWrapper> listW = new ArrayList<UserWrapper>();
+
+        for(User u : users)
+        {
+            listW.add(converter.converterUser(u));
+        }
+        return listW;
+    }
 }
