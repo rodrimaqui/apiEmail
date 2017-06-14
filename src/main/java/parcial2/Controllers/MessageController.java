@@ -1,7 +1,9 @@
 package parcial2.Controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import parcial2.Models.Message;
 import parcial2.Services.MessageService;
@@ -20,32 +22,62 @@ public class MessageController {
     MessageService m;
 
     @RequestMapping(value ="/api/message", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void addMessage(@RequestBody Message message)
+    public ResponseEntity addMessage(@RequestBody Message message)
     {
-        m.saveMessage(message);
+        try {
+            m.saveMessage(message);
+            return new ResponseEntity(HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping(value = "/api/message", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void removeMessage(@RequestHeader int id)
+    public ResponseEntity removeMessage(@RequestHeader int id)
     {
-        m.removeMessage(id);
+        try {
+            m.removeMessage(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping(value = "/api/message/Inbox", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Message> getInboxMessage()
+    public ResponseEntity<List<Message>> getInboxMessage()
     {
-        return m.getInboxMessage();
+        List<Message> mList = m.getInboxMessage();
+        if(mList != null)
+        {
+            return new ResponseEntity<List<Message>>(mList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
+        }
     }
 
     @RequestMapping(value = "/api/message/Trash", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Message> getTrashMessage()
+    public ResponseEntity<List<Message>> getTrashMessage()
     {
-        return m.getTrashMessage();
+        List<Message> mList = m.getTrashMessage();
+
+        if(mList != null)
+        {
+            return new ResponseEntity<List<Message>>(mList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
+        }
     }
 
     @RequestMapping(value = "/api/message/Send", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<Message> getSendMessage()
+    public ResponseEntity<List<Message>> getSendMessage()
     {
-        return m.getSendMessage();
+        List<Message> mList = m.getSendMessage();
+
+        if(mList != null)
+        {
+            return new ResponseEntity<List<Message>>(mList, HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<Message>>(HttpStatus.NO_CONTENT);
+        }
     }
 }

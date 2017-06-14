@@ -32,30 +32,51 @@ public class UserController {
     SessionData sessionData;
     ///
     @RequestMapping(value ="/api/user/", method = RequestMethod.GET , produces = MediaType.APPLICATION_JSON_VALUE)
-    public List<UserWrapper> getUser()
+    public ResponseEntity<List<UserWrapper>> getUser()
     {
-
-        return convertList(u.getAllUser());
+        List<User> uList = u.getAllUser();
+        if(uList != null)
+        {
+            return new ResponseEntity<List<UserWrapper>>(this.convertList(uList), HttpStatus.OK);
+        } else {
+            return new ResponseEntity<List<UserWrapper>>(HttpStatus.NO_CONTENT);
+        }
     }
 
-    @RequestMapping(value = "/api/user", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void addUser(@RequestBody User usuario)
+    @RequestMapping(value = "/api/user/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity addUser(@RequestBody User usuario)
     {
-        u.saveUser(usuario);
+        try {
+            u.saveUser(usuario);
+            return new ResponseEntity(HttpStatus.CREATED);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
     }
 
-    @RequestMapping(value = "/api/deleteUser", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public void deleteUser(@RequestHeader int id)
+    @RequestMapping(value = "/api/user/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity deleteUser(@RequestHeader int id)
     {
-        u.removeOneUser(id);
+        try {
+            u.removeOneUser(id);
+            return new ResponseEntity(HttpStatus.OK);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @RequestMapping(value = "/api/user", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
-    public UserWrapper getUserWithName(@RequestParam("email") String email)
+    public ResponseEntity<UserWrapper> getUserWithName(@RequestParam("email") String email)
     {
-        UserWrapper uW = converter.converterUser(u.getUserWithName(email));
-       return uW;
+        User aux = u.getUserWithName(email);
+
+        if (aux != null) {
+            UserWrapper uW = converter.converterUser(aux);
+            return  new ResponseEntity<UserWrapper>(uW,HttpStatus.OK);
+        } else {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
     }
 //////////
     @RequestMapping(value = "/login", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
