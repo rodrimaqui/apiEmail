@@ -27,7 +27,7 @@ public class ModelsTest extends TestCase {
 
     protected void setUp(){
 
-        
+
         Person p2 = new Person("das","asd","ad","sefd","df","sdf","sad");
 
         LoginResponseWrapper lrw = new LoginResponseWrapper();

@@ -1,2 +1,4 @@
 /home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/test/java/parcial2/AppTest.java
-/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/test/java/parcial2/ModelsTest.java
+/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/test/java/parcial2/Models/ModelsTest.java
+/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/test/java/parcial2/messageControllerTest.java
+/home/rodri/Documentos/TSSI/1erCuatri/Programacion-Laboratorio Avanzada I/Parcial2/src/test/java/parcial2/userControllerTest.java
