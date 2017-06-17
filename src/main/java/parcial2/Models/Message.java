@@ -79,4 +79,12 @@ public class Message {
     public void setEstado(boolean estado) {
         this.estado = estado;
     }
+
+    public String getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(String fecha) {
+        this.fecha = fecha;
+    }
 }

@@ -12,7 +12,6 @@ public class User {
     private String email;
     private String contrasenia;
     private Person p;
-   // private List<Message> listMessage;
 
     public User(){}
 
@@ -20,7 +19,6 @@ public class User {
         this.email = email;
         this.contrasenia = contrasenia;
         this.p = new Person();
-        //listMessage = new ArrayList<Message>();
     }
 
     public User(int id, String email, String contrasenia, Person p/*, List<Message> listMessage*/) {
@@ -30,14 +28,6 @@ public class User {
         this.p = p;
         //this.listMessage = listMessage;
     }
-
-   /* public User(int id, String email, String contrasenia, Person p) {
-        this.id = id;
-        this.email = email;
-        this.contrasenia = contrasenia;
-        this.p = p;
-
-    }*/
 
     public int getId() {
         return id;

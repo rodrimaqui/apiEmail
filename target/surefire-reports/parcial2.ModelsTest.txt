@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: parcial2.ModelsTest
+-------------------------------------------------------------------------------
+Tests run: 20, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.002 sec - in parcial2.ModelsTest

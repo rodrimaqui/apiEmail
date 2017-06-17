@@ -55,14 +55,14 @@ public class UserController {
 
     }
 
-    @RequestMapping(value = "/api/user/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/user/", method = RequestMethod.DELETE)
     public ResponseEntity deleteUser(@RequestHeader int id)
     {
         try {
             u.removeOneUser(id);
             return new ResponseEntity(HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
     }
 
