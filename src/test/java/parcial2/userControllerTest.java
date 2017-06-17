@@ -81,29 +81,6 @@ public class userControllerTest extends TestCase{
         this.sessionData.removeSession(this.sessionid);
     }
 
-    //Test del Delete
-    @Test
-    public void testDeleteUserOk() throws Exception{
-
-        mockMvc.perform(delete
-                ("/api/user/")
-                .header("sessionid", this.sessionid)
-                .header("id", user.getId())
-        )
-                .andExpect(status().isOk());
-    }
-
-    @Test
-    public void testDeleteUserBadRequest() throws Exception{
-
-        mockMvc.perform(delete
-                ("/api/user/")
-                .header("sessionid", this.sessionid)
-                .header("id", "casa")
-        )
-                .andExpect(status().isBadRequest());
-    }
-
     //Test Agregar Usuario
 
     @Test
@@ -154,6 +131,29 @@ public class userControllerTest extends TestCase{
                         .param("email", "carlos")
         )
                 .andExpect(status().isNotFound());
+    }
+
+    //Test del Delete
+    @Test
+    public void testDeleteUserOk() throws Exception{
+
+        mockMvc.perform(delete
+                ("/api/user/")
+                .header("sessionid", this.sessionid)
+                .header("id", 5)
+        )
+                .andExpect(status().isOk());
+    }
+
+    @Test
+    public void testDeleteUserBadRequest() throws Exception{
+
+        mockMvc.perform(delete
+                ("/api/user/")
+                .header("sessionid", this.sessionid)
+                .header("id", "casa")
+        )
+                .andExpect(status().isBadRequest());
     }
 
     // Test Sobre el logIn
