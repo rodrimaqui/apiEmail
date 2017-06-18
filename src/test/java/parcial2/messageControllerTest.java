@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Created by rodri on 17/06/17.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = App.class)
+@SpringBootTest
 @WebAppConfiguration
 public class messageControllerTest extends TestCase {
 
