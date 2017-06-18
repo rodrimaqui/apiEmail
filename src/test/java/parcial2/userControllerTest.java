@@ -37,9 +37,8 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * Created by rodri on 16/06/17.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest(classes = {App.class})
+@SpringBootTest(classes = App.class)
 @WebAppConfiguration
-@ActiveProfiles("default")
 public class userControllerTest extends TestCase{
 
     @Autowired
@@ -104,6 +103,8 @@ public class userControllerTest extends TestCase{
 
     @Test
     public void testAllUsersOk() throws Exception{
+
+
         mockMvc.perform(
                 get("/api/user/")
                         .header("sessionid", this.sessionid)
