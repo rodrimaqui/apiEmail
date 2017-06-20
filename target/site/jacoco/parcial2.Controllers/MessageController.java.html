@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>MessageController.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parcial2</a> &gt; <a href="index.source.html" class="el_package">parcial2.Controllers</a> &gt; <span class="el_source">MessageController.java</span></div><h1>MessageController.java</h1><pre class="source lang-java linenums">package parcial2.Controllers;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+import parcial2.Models.Message;
+import parcial2.Services.MessageService;
+
+import java.util.List;
+
+
+/**
+ * Created by rodri on 06/06/17.
+ */
+@RestController
+/*@RequestMapping(value = &quot;/api&quot;,produces = MediaType.APPLICATION_JSON_VALUE)*/
+<span class="fc" id="L19">public class MessageController {</span>
+
+    @Autowired
+    MessageService m;
+
+    @RequestMapping(value =&quot;/api/message&quot;, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity addMessage(@RequestBody Message message)
+    {
+        try {
+<span class="fc" id="L28">            m.saveMessage(message);</span>
+<span class="fc" id="L29">            return new ResponseEntity(HttpStatus.CREATED);</span>
+<span class="nc" id="L30">        } catch (Exception e) {</span>
+<span class="nc" id="L31">            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @RequestMapping(value = &quot;/api/message&quot;, method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity removeMessage(@RequestHeader int id)
+    {
+        try {
+<span class="fc" id="L39">            m.removeMessage(id);</span>
+<span class="fc" id="L40">            return new ResponseEntity(HttpStatus.OK);</span>
+<span class="nc" id="L41">        } catch (Exception e) {</span>
+<span class="nc" id="L42">            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+        }
+    }
+
+    @RequestMapping(value = &quot;/api/message/Inbox&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;List&lt;Message&gt;&gt; getInboxMessage()
+    {
+<span class="fc" id="L49">        List&lt;Message&gt; mList = m.getInboxMessage();</span>
+<span class="pc bpc" id="L50" title="1 of 2 branches missed.">        if(mList != null)</span>
+        {
+<span class="fc" id="L52">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(mList, HttpStatus.OK);</span>
+        } else {
+<span class="nc" id="L54">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(HttpStatus.NO_CONTENT);</span>
+        }
+    }
+
+    @RequestMapping(value = &quot;/api/message/Trash&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;List&lt;Message&gt;&gt; getTrashMessage()
+    {
+<span class="fc" id="L61">        List&lt;Message&gt; mList = m.getTrashMessage();</span>
+
+<span class="pc bpc" id="L63" title="1 of 2 branches missed.">        if(mList != null)</span>
+        {
+<span class="fc" id="L65">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(mList, HttpStatus.OK);</span>
+        } else {
+<span class="nc" id="L67">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(HttpStatus.NO_CONTENT);</span>
+        }
+    }
+
+    @RequestMapping(value = &quot;/api/message/Send&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity&lt;List&lt;Message&gt;&gt; getSendMessage()
+    {
+<span class="fc" id="L74">        List&lt;Message&gt; mList = m.getSendMessage();</span>
+
+<span class="pc bpc" id="L76" title="1 of 2 branches missed.">        if(mList != null)</span>
+        {
+<span class="fc" id="L78">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(mList, HttpStatus.OK);</span>
+        } else {
+<span class="nc" id="L80">            return new ResponseEntity&lt;List&lt;Message&gt;&gt;(HttpStatus.NO_CONTENT);</span>
+        }
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

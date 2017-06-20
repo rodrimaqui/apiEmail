@@ -34,7 +34,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
  * Created by rodri on 17/06/17.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = App.class)
 @WebAppConfiguration
 public class messageControllerTest extends TestCase {
 
@@ -90,7 +90,7 @@ public class messageControllerTest extends TestCase {
         String json = Resources.toString(url, Charsets.UTF_8);
 
         mockMvc.perform(
-                post("/api/message")
+                post("/api/message/")
                         .header("sessionid", this.sessionid)
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(json)
@@ -99,12 +99,13 @@ public class messageControllerTest extends TestCase {
 
     }
 
+
     //Test Recibir mensajes Inbox
     @Test
     public void testGetMessageInbox() throws Exception{
 
         mockMvc.perform(
-                get("/api/message/Inbox")
+                get("/api/message/Inbox/")
                         .header("sessionid", this.sessionid)
         )
                 .andExpect(status().isOk())
@@ -116,7 +117,7 @@ public class messageControllerTest extends TestCase {
     public void testGetMessageTrash() throws Exception{
 
         mockMvc.perform(
-                get("/api/message/Trash")
+                get("/api/message/Trash/")
                         .header("sessionid", this.sessionid)
         )
                 .andExpect(status().isOk())
@@ -128,7 +129,7 @@ public class messageControllerTest extends TestCase {
     public void testGetMessageSend() throws Exception{
 
         mockMvc.perform(
-                get("/api/message/Send")
+                get("/api/message/Send/")
                         .header("sessionid", this.sessionid)
         )
                 .andExpect(status().isOk())
@@ -141,7 +142,7 @@ public class messageControllerTest extends TestCase {
     public void testDeleteMessage() throws Exception{
 
         mockMvc.perform(delete
-                ("/api/message")
+                ("/api/message/")
                 .header("sessionid", this.sessionid)
                 .header("id", 3)
         )

@@ -38,7 +38,7 @@ import static org.springframework.test.web.servlet.request.MockMvcRequestBuilder
  * Created by rodri on 16/06/17.
  */
 @RunWith(SpringJUnit4ClassRunner.class)
-@SpringBootTest
+@SpringBootTest(classes = App.class)
 @WebAppConfiguration
 public class userControllerTest extends TestCase{
 
@@ -91,12 +91,27 @@ public class userControllerTest extends TestCase{
         String json = Resources.toString(url, Charsets.UTF_8);
 
         mockMvc.perform(
-                post("/api/user/")
+                post("/user/")
                         .header("sessionid", this.sessionid)
                         .contentType(MediaType.APPLICATION_JSON_UTF8)
                         .content(json)
         )
                 .andExpect(status().isCreated());
+
+    }
+
+    @Test
+    public void testAddUserFail() throws Exception{
+        URL url  = Resources.getResource("userFail.json");
+        String json = Resources.toString(url, Charsets.UTF_8);
+
+        mockMvc.perform(
+                post("/user/")
+                        .header("sessionid", this.sessionid)
+                        .contentType(MediaType.APPLICATION_JSON_UTF8)
+                        .content(json)
+        )
+                .andExpect(status().isInternalServerError());
 
     }
 
@@ -189,8 +204,8 @@ public class userControllerTest extends TestCase{
                 post("/login")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .content(EntityUtils.toString(new UrlEncodedFormEntity(asList(
-                                new BasicNameValuePair("user", "asd"),
-                                new BasicNameValuePair("pwd", "asd")
+                                new BasicNameValuePair("user", "rodri"),
+                                new BasicNameValuePair("pwd", "123")
                         ))))
         )
                 .andExpect(status().isOk());

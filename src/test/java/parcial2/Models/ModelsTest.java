@@ -55,6 +55,7 @@ public class ModelsTest extends TestCase {
         user.setP(person);
        // message = new Message(1,"asd","asd","asd","asd","123",true);
 
+        Message message3 = new Message(44,"asd","asd","asd","asd","12/12/1999",true);
         Message message2 = new Message("asd","asd","asd","asd",true);
         message = new Message();
         message.setId(1);

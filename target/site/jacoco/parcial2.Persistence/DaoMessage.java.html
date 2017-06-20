@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?><!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml" lang="es"><head><meta http-equiv="Content-Type" content="text/html;charset=UTF-8"/><link rel="stylesheet" href="../jacoco-resources/report.css" type="text/css"/><link rel="shortcut icon" href="../jacoco-resources/report.gif" type="image/gif"/><title>DaoMessage.java</title><link rel="stylesheet" href="../jacoco-resources/prettify.css" type="text/css"/><script type="text/javascript" src="../jacoco-resources/prettify.js"></script></head><body onload="window['PR_TAB_WIDTH']=4;prettyPrint()"><div class="breadcrumb" id="breadcrumb"><span class="info"><a href="../jacoco-sessions.html" class="el_session">Sessions</a></span><a href="../index.html" class="el_report">parcial2</a> &gt; <a href="index.source.html" class="el_package">parcial2.Persistence</a> &gt; <span class="el_source">DaoMessage.java</span></div><h1>DaoMessage.java</h1><pre class="source lang-java linenums">package parcial2.Persistence;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Repository;
+import parcial2.Models.Message;
+import parcial2.util.AuthenticationData;
+
+import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * Created by rodri on 06/06/17.
+ */
+@Repository
+public class DaoMessage {
+
+    private Connection cn;
+
+    @Autowired
+    private AuthenticationData as;
+
+    public DaoMessage(@Value(&quot;${db.username}&quot;) String dbUsername,
+                   @Value(&quot;${db.name}&quot;) String dbName,
+                   @Value(&quot;${db.host}&quot;) String dbHost,
+                   @Value(&quot;${db.port}&quot;) String dbPort,
+                   @Value(&quot;${db.password}&quot;) String dbPassword
+<span class="fc" id="L29">    ) {</span>
+        try {
+<span class="fc" id="L31">            Class.forName(&quot;com.mysql.jdbc.Driver&quot;);</span>
+            //cn = DriverManager.getConnection(&quot;jdbc:mysql://localhost:3306/api&quot;, &quot;api&quot;, &quot;123456&quot;);
+<span class="fc" id="L33">            this.cn = DriverManager.getConnection(&quot;jdbc:mysql://&quot; + dbHost + &quot;:&quot; + dbPort + &quot;/&quot; + dbName, dbUsername, dbPassword);</span>
+<span class="nc" id="L34">        } catch (Exception e) {</span>
+<span class="nc" id="L35">            e.printStackTrace();</span>
+<span class="fc" id="L36">        }</span>
+
+<span class="fc" id="L38">    }</span>
+    public void saveMessage(Message message) {
+
+        try {
+
+            //Obtengo el id del Receptor
+<span class="fc" id="L44">            PreparedStatement st1 = cn.prepareStatement(&quot;SELECT id FROM users WHERE email LIKE ?&quot;);</span>
+<span class="fc" id="L45">            st1.setString(1, message.getReceptor());</span>
+<span class="fc" id="L46">            ResultSet rs1 = st1.executeQuery();</span>
+
+<span class="fc" id="L48">            int idReceptor = 0;</span>
+<span class="fc bfc" id="L49" title="All 2 branches covered.">            while(rs1.next())</span>
+            {
+<span class="fc" id="L51">                idReceptor = rs1.getInt(&quot;id&quot;);</span>
+            }
+
+            //Obtengo el id del Remitente
+<span class="fc" id="L55">            PreparedStatement st2 = cn.prepareStatement(&quot;SELECT id FROM users WHERE email LIKE ?&quot;);</span>
+<span class="fc" id="L56">            st2.setString(1, message.getRemitente());</span>
+<span class="fc" id="L57">            ResultSet rs2 = st2.executeQuery();</span>
+
+<span class="fc" id="L59">            int idRemitente = 0;</span>
+<span class="fc bfc" id="L60" title="All 2 branches covered.">            while(rs2.next())</span>
+            {
+<span class="fc" id="L62">                idRemitente = rs2.getInt(&quot;id&quot;);</span>
+            }
+
+            //Guardo toda la info en la base de datos
+
+<span class="fc" id="L67">            PreparedStatement st3 = cn.prepareStatement(&quot;INSERT INTO messages(remitente,receptor,asunto,mensaje,userReceptor,userRemitente) VALUES(?,?,?,?,?,?)&quot;);</span>
+<span class="fc" id="L68">            st3.setString(1,message.getRemitente());</span>
+<span class="fc" id="L69">            st3.setString(2,message.getReceptor());</span>
+<span class="fc" id="L70">            st3.setString(3,message.getAsunto());</span>
+<span class="fc" id="L71">            st3.setString(4,message.getMensaje());</span>
+<span class="fc" id="L72">            st3.setInt(5,idReceptor);</span>
+<span class="fc" id="L73">            st3.setInt(6,idRemitente);</span>
+
+<span class="fc" id="L75">            st3.execute();</span>
+
+<span class="nc" id="L77">      }catch(SQLException e)</span>
+        {
+<span class="nc" id="L79">            e.printStackTrace();</span>
+<span class="fc" id="L80">        }</span>
+
+<span class="fc" id="L82">    }</span>
+
+    public void removeMessage(int id) {
+
+        try {
+
+<span class="fc" id="L88">            PreparedStatement ps = cn.prepareStatement(&quot;UPDATE messages SET estado = 0 WHERE id = ?&quot;);</span>
+<span class="fc" id="L89">            ps.setInt(1, id);</span>
+
+<span class="fc" id="L91">            ps.execute();</span>
+<span class="nc" id="L92">        }catch (SQLException e)</span>
+        {
+<span class="nc" id="L94">            e.printStackTrace();</span>
+<span class="fc" id="L95">        }</span>
+
+<span class="fc" id="L97">    }</span>
+
+
+    public List&lt;Message&gt; getInboxMessage() {
+<span class="fc" id="L101">        List&lt;Message&gt; listMessage = new ArrayList&lt;Message&gt;();</span>
+        try{
+
+<span class="fc" id="L104">            PreparedStatement ps = cn.prepareStatement(&quot;SELECT * FROM messages WHERE userReceptor = ? AND estado = 1&quot;);</span>
+<span class="fc" id="L105">            ps.setInt(1,as.getUsuario().getId());</span>
+
+<span class="fc" id="L107">            ResultSet rs = ps.executeQuery();</span>
+
+<span class="fc bfc" id="L109" title="All 2 branches covered.">            while(rs.next())</span>
+            {
+
+<span class="fc" id="L112">                Message auxMessage = new Message(rs.getInt(&quot;id&quot;),rs.getString(&quot;remitente&quot;),rs.getString(&quot;receptor&quot;),rs.getString(&quot;asunto&quot;),rs.getString(&quot;mensaje&quot;),rs.getString(&quot;fecha&quot;),rs.getBoolean(&quot;estado&quot;));</span>
+<span class="fc" id="L113">                listMessage.add(auxMessage);</span>
+<span class="fc" id="L114">            }</span>
+
+<span class="nc" id="L116">        }catch(SQLException e)</span>
+        {
+<span class="nc" id="L118">            e.printStackTrace();</span>
+<span class="fc" id="L119">        }</span>
+<span class="fc" id="L120">        return listMessage;</span>
+    }
+
+    public List&lt;Message&gt; getTrashMessage() {
+
+<span class="fc" id="L125">        List&lt;Message&gt; listMessage = new ArrayList&lt;Message&gt;();</span>
+        try{
+
+<span class="fc" id="L128">            PreparedStatement ps = cn.prepareStatement(&quot;SELECT * FROM messages WHERE userReceptor = ? AND estado = 0&quot;);</span>
+<span class="fc" id="L129">            ps.setInt(1,as.getUsuario().getId());</span>
+
+<span class="fc" id="L131">            ResultSet rs = ps.executeQuery();</span>
+
+<span class="pc bpc" id="L133" title="1 of 2 branches missed.">            while(rs.next())</span>
+            {
+
+<span class="nc" id="L136">                Message auxMessage = new Message(rs.getInt(&quot;id&quot;),rs.getString(&quot;remitente&quot;),rs.getString(&quot;receptor&quot;),rs.getString(&quot;asunto&quot;),rs.getString(&quot;mensaje&quot;),rs.getString(&quot;fecha&quot;),rs.getBoolean(&quot;estado&quot;));</span>
+<span class="nc" id="L137">                listMessage.add(auxMessage);</span>
+<span class="nc" id="L138">            }</span>
+
+<span class="nc" id="L140">        }catch(SQLException e)</span>
+        {
+<span class="nc" id="L142">            e.printStackTrace();</span>
+<span class="fc" id="L143">        }</span>
+<span class="fc" id="L144">        return listMessage;</span>
+    }
+
+    public List&lt;Message&gt; getSendMessage() {
+<span class="fc" id="L148">        List&lt;Message&gt; listMessage = new ArrayList&lt;Message&gt;();</span>
+        try{
+
+<span class="fc" id="L151">            PreparedStatement ps = cn.prepareStatement(&quot;SELECT * FROM messages WHERE userRemitente = ? AND estado = 1&quot;);</span>
+<span class="fc" id="L152">            ps.setInt(1,as.getUsuario().getId());</span>
+
+<span class="fc" id="L154">            ResultSet rs = ps.executeQuery();</span>
+
+<span class="fc bfc" id="L156" title="All 2 branches covered.">            while(rs.next())</span>
+            {
+
+<span class="fc" id="L159">                Message auxMessage = new Message(rs.getInt(&quot;id&quot;),rs.getString(&quot;remitente&quot;),rs.getString(&quot;receptor&quot;),rs.getString(&quot;asunto&quot;),rs.getString(&quot;mensaje&quot;),rs.getString(&quot;fecha&quot;),rs.getBoolean(&quot;estado&quot;));</span>
+<span class="fc" id="L160">                listMessage.add(auxMessage);</span>
+<span class="fc" id="L161">            }</span>
+
+<span class="nc" id="L163">        }catch(SQLException e)</span>
+        {
+<span class="nc" id="L165">            e.printStackTrace();</span>
+<span class="fc" id="L166">        }</span>
+<span class="fc" id="L167">        return listMessage;</span>
+    }
+}
+</pre><div class="footer"><span class="right">Created with <a href="http://www.jacoco.org/jacoco">JaCoCo</a> 0.7.9.201702052155</span></div></body></html>

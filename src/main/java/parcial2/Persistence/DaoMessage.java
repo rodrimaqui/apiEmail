@@ -101,7 +101,7 @@ public class DaoMessage {
         List<Message> listMessage = new ArrayList<Message>();
         try{
 
-            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userReceptor = ? AND estado = 1");
+            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userReceptor = ? AND estado = 1  ORDER BY fecha DESC");
             ps.setInt(1,as.getUsuario().getId());
 
             ResultSet rs = ps.executeQuery();
@@ -125,7 +125,7 @@ public class DaoMessage {
         List<Message> listMessage = new ArrayList<Message>();
         try{
 
-            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userReceptor = ? AND estado = 0");
+            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userReceptor = ? AND estado = 0  ORDER BY fecha DESC;");
             ps.setInt(1,as.getUsuario().getId());
 
             ResultSet rs = ps.executeQuery();
@@ -148,7 +148,7 @@ public class DaoMessage {
         List<Message> listMessage = new ArrayList<Message>();
         try{
 
-            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userRemitente = ? AND estado = 1");
+            PreparedStatement ps = cn.prepareStatement("SELECT * FROM messages WHERE userRemitente = ? AND estado = 1  ORDER BY fecha DESC;");
             ps.setInt(1,as.getUsuario().getId());
 
             ResultSet rs = ps.executeQuery();

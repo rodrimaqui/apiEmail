@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="parcial2.userControllerTest" time="0.625" tests="9" errors="0" skipped="0" failures="0">
+<testsuite name="parcial2.userControllerTest" time="0.633" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="sun.boot.library.path" value="/usr/lib/jvm/java-8-oracle/jre/lib/amd64"/>
@@ -61,13 +61,13 @@
     <property name="sun.desktop" value="gnome"/>
     <property name="sun.cpu.isalist" value=""/>
   </properties>
-  <testcase name="testDeleteUserBadRequest" classname="parcial2.userControllerTest" time="0.103"/>
-  <testcase name="testLogOUtOk" classname="parcial2.userControllerTest" time="0.043"/>
-  <testcase name="testGetByEmailNotFound" classname="parcial2.userControllerTest" time="0.037"/>
-  <testcase name="testLoginOk" classname="parcial2.userControllerTest" time="0.029"/>
-  <testcase name="testAddUserCreated" classname="parcial2.userControllerTest" time="0.301"/>
-  <testcase name="testDeleteUserOk" classname="parcial2.userControllerTest" time="0.034"/>
-  <testcase name="testGetByEmailOk" classname="parcial2.userControllerTest" time="0.024"/>
-  <testcase name="testAllUsersOk" classname="parcial2.userControllerTest" time="0.031"/>
-  <testcase name="testLoginForbbiden" classname="parcial2.userControllerTest" time="0.023"/>
+  <testcase name="testDeleteUserBadRequest" classname="parcial2.userControllerTest" time="0.197"/>
+  <testcase name="testLogOUtOk" classname="parcial2.userControllerTest" time="0.039"/>
+  <testcase name="testGetByEmailNotFound" classname="parcial2.userControllerTest" time="0.04"/>
+  <testcase name="testLoginOk" classname="parcial2.userControllerTest" time="0.034"/>
+  <testcase name="testAddUserCreated" classname="parcial2.userControllerTest" time="0.263"/>
+  <testcase name="testDeleteUserOk" classname="parcial2.userControllerTest" time="0.008"/>
+  <testcase name="testGetByEmailOk" classname="parcial2.userControllerTest" time="0.018"/>
+  <testcase name="testAllUsersOk" classname="parcial2.userControllerTest" time="0.026"/>
+  <testcase name="testLoginForbbiden" classname="parcial2.userControllerTest" time="0.008"/>
 </testsuite>

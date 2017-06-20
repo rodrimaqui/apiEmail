@@ -43,7 +43,7 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "/api/user/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/user/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addUser(@RequestBody User usuario)
     {
         try {

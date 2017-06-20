@@ -21,7 +21,7 @@ public class MessageController {
     @Autowired
     MessageService m;
 
-    @RequestMapping(value ="/api/message", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value ="/api/message/", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addMessage(@RequestBody Message message)
     {
         try {
@@ -32,7 +32,7 @@ public class MessageController {
         }
     }
 
-    @RequestMapping(value = "/api/message", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/message/", method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity removeMessage(@RequestHeader int id)
     {
         try {
@@ -43,7 +43,7 @@ public class MessageController {
         }
     }
 
-    @RequestMapping(value = "/api/message/Inbox", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/message/Inbox/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Message>> getInboxMessage()
     {
         List<Message> mList = m.getInboxMessage();
@@ -55,7 +55,7 @@ public class MessageController {
         }
     }
 
-    @RequestMapping(value = "/api/message/Trash", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/message/Trash/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Message>> getTrashMessage()
     {
         List<Message> mList = m.getTrashMessage();
@@ -68,7 +68,7 @@ public class MessageController {
         }
     }
 
-    @RequestMapping(value = "/api/message/Send", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = "/api/message/Send/", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<List<Message>> getSendMessage()
     {
         List<Message> mList = m.getSendMessage();
