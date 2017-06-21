@@ -20,6 +20,7 @@ import org.springframework.web.context.WebApplicationContext;
 import parcial2.Models.Message;
 import parcial2.Models.Person;
 import parcial2.Models.User;
+import parcial2.Persistence.DaoMessage;
 import parcial2.util.SessionData;
 
 import java.net.URL;
@@ -41,6 +42,7 @@ public class messageControllerTest extends TestCase {
 
     @Autowired
     private SessionData sessionData;
+
 
     @Autowired
     private WebApplicationContext webApplicationContext;
@@ -148,6 +150,8 @@ public class messageControllerTest extends TestCase {
         )
                 .andExpect(status().isOk());
     }
+
+
 
 
 }

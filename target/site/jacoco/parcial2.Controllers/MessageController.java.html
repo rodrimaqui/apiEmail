@@ -21,7 +21,7 @@ import java.util.List;
     @Autowired
     MessageService m;
 
-    @RequestMapping(value =&quot;/api/message&quot;, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value =&quot;/api/message/&quot;, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addMessage(@RequestBody Message message)
     {
         try {
@@ -32,7 +32,7 @@ import java.util.List;
         }
     }
 
-    @RequestMapping(value = &quot;/api/message&quot;, method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = &quot;/api/message/&quot;, method = RequestMethod.DELETE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity removeMessage(@RequestHeader int id)
     {
         try {
@@ -43,7 +43,7 @@ import java.util.List;
         }
     }
 
-    @RequestMapping(value = &quot;/api/message/Inbox&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = &quot;/api/message/Inbox/&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity&lt;List&lt;Message&gt;&gt; getInboxMessage()
     {
 <span class="fc" id="L49">        List&lt;Message&gt; mList = m.getInboxMessage();</span>
@@ -55,7 +55,7 @@ import java.util.List;
         }
     }
 
-    @RequestMapping(value = &quot;/api/message/Trash&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = &quot;/api/message/Trash/&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity&lt;List&lt;Message&gt;&gt; getTrashMessage()
     {
 <span class="fc" id="L61">        List&lt;Message&gt; mList = m.getTrashMessage();</span>
@@ -68,7 +68,7 @@ import java.util.List;
         }
     }
 
-    @RequestMapping(value = &quot;/api/message/Send&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = &quot;/api/message/Send/&quot;, method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity&lt;List&lt;Message&gt;&gt; getSendMessage()
     {
 <span class="fc" id="L74">        List&lt;Message&gt; mList = m.getSendMessage();</span>

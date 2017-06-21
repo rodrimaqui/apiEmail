@@ -29,9 +29,9 @@ import java.util.*;
                                     HttpServletResponse response, FilterChain filterChain)
             throws ServletException, IOException {
 
-<span class="nc" id="L32">        String sessionId = request.getHeader(&quot;sessionid&quot;);</span>
-<span class="nc" id="L33">        AuthenticationData data = sessionData.getSession(sessionId);</span>
-<span class="nc bnc" id="L34" title="All 2 branches missed.">        if (null != data) {</span>
+<span class="fc" id="L32">        String sessionId = request.getHeader(&quot;sessionid&quot;);</span>
+<span class="fc" id="L33">        AuthenticationData data = sessionData.getSession(sessionId);</span>
+<span class="pc bpc" id="L34" title="1 of 2 branches missed.">        if (null != data) {</span>
 <span class="nc" id="L35">            HeaderMapRequestWrapper requestWrapper = new HeaderMapRequestWrapper(request);</span>
 
             //Antes decia getnombreyapellido y lo cambie con el getemail
@@ -39,9 +39,9 @@ import java.util.*;
 
 <span class="nc" id="L40">            filterChain.doFilter(requestWrapper, response);</span>
 <span class="nc" id="L41">        } else {</span>
-<span class="nc" id="L42">            response.setStatus(HttpStatus.UNAUTHORIZED.value());</span>
+<span class="fc" id="L42">            response.setStatus(HttpStatus.UNAUTHORIZED.value());</span>
         }
-<span class="nc" id="L44">    }</span>
+<span class="fc" id="L44">    }</span>
 
     public class HeaderMapRequestWrapper extends HttpServletRequestWrapper {
         /**

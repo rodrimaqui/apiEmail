@@ -204,11 +204,16 @@ public class userControllerTest extends TestCase{
                 post("/login")
                         .contentType(MediaType.APPLICATION_FORM_URLENCODED)
                         .content(EntityUtils.toString(new UrlEncodedFormEntity(asList(
-                                new BasicNameValuePair("user", "rodri"),
-                                new BasicNameValuePair("pwd", "123")
+                                new BasicNameValuePair("user", "asd"),
+                                new BasicNameValuePair("pwd", "asd")
                         ))))
         )
                 .andExpect(status().isOk());
+    }
+
+    @Test
+    public void checkSessionTest() throws Exception {
+        this.sessionData.checkSessions();
     }
 
 }

@@ -43,14 +43,14 @@ import java.util.List;
         }
     }
 
-    @RequestMapping(value = &quot;/api/user/&quot;, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(value = &quot;/user/&quot;, method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity addUser(@RequestBody User usuario)
     {
         try {
 <span class="fc" id="L50">            u.saveUser(usuario);</span>
 <span class="fc" id="L51">            return new ResponseEntity(HttpStatus.CREATED);</span>
-<span class="nc" id="L52">        } catch (Exception e) {</span>
-<span class="nc" id="L53">            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</span>
+<span class="fc" id="L52">        } catch (Exception e) {</span>
+<span class="fc" id="L53">            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);</span>
         }
 
     }

@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
-Test set: parcial2.AppTest
+Test set: parcial2.authFilterTest
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec - in parcial2.AppTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.949 sec - in parcial2.authFilterTest
